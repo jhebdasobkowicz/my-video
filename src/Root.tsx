@@ -1,4 +1,5 @@
 import { Composition, staticFile } from "remotion";
+import { GloveReel, FPS, totalFrames } from "./GloveReel";
 import {
   CaptionedVideo,
   calculateCaptionedVideoMetadata,
@@ -9,6 +10,15 @@ import {
 
 export const RemotionRoot: React.FC = () => {
   return (
+    <>
+    <Composition
+      id="GloveReel"
+      component={GloveReel}
+      durationInFrames={totalFrames}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
     <Composition
       id="CaptionedVideo"
       component={CaptionedVideo}
@@ -20,5 +30,6 @@ export const RemotionRoot: React.FC = () => {
         src: staticFile("sample-video.mp4"),
       }}
     />
+    </>
   );
 };
